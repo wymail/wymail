@@ -7,7 +7,7 @@ init-index: index-remote
 	[[ -d index ]] || git subtree add --prefix index gh-readme master --squash
 
 pull-index: init-index
-	git subtree pull --prefix index gh-readme master --squash
+	git subtree pull --prefix index gh-readme master --squash -m '🤖 pull index subtree'
 
 push-index: pull-index
 	git subtree push --prefix index gh-readme master --squash
