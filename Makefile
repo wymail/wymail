@@ -13,14 +13,14 @@ clean:
 	pandoc -f gfm -i $< -t html -o $@
 
 index: $(outputs)
-	ls ./blog | ./scripts/filename2index.sh > ./dist/blog/Index.md \
-		&& pandoc -f gfm -i ./dist/profile/README.md -t html -o ./index.html
+	ls ./blog | ./scripts/filename2index.sh > ./dist/blog/Index.md
 
 readme: ./README.md
 
 profile: $(outputs) index readme
 	cat ./README.md > ./dist/profile/README.md \
-		&& cat ./dist/blog/Index.md >> ./dist/profile/README.md
+		&& cat ./dist/blog/Index.md >> ./dist/profile/README.md \
+		&& pandoc -f gfm -i ./dist/profile/README.md -t html -o ./dist/profile/README.html
 
 ##################################################################################
 
