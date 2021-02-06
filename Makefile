@@ -1,13 +1,13 @@
 profile_path = 'dist/profile'
 profile_remote = 'gh-profile'
-profile_remote_url = 'https://github.com/$(GH_USER)/$(GH_USER).git)'
+profile_remote_url = 'https://github.com/$(GH_USER)/$(GH_USER).git'
 inputs := $(wildcard ./blog/*.md)
 outputs := $(patsubst ./blog/%.md,./dist/blog/%.html,$(inputs))
 
 all: $(outputs) index profile
 
 clean:
-	(rm -fr ./dist || true) && mkdir -p ./dist/{blog,profile}
+	(rm -fr ./dist || true) && mkdir -p ./dist/{blog}
 
 ./dist/blog/%.html : ./blog/%.md
 	pandoc -f gfm -i $< -t html -o $@
@@ -26,7 +26,7 @@ profile: $(outputs) index readme
 
 init-profile-remote:
 	(git remote rm $(profile_remote) 2>/dev/null \
-		&& git remote add $(profile_remote) $(profile_remote_url) \
+		&& git remote add $(profile_remote) $(profile_remote_url)) \
 		|| git remote add $(profile_remote) $(profile_remote_url)
 
 init-profile: init-profile-remote
@@ -36,7 +36,7 @@ init-profile: init-profile-remote
 pull-profile: init-profile
 	git subtree pull --prefix $(profile_path) $(profile_remote) master --squash -m '🤖 pull profile subtree'
 
-push-profile: pull-profile
+push-profile: init-profile pull-profile
 	git subtree push --prefix $(profile_path) $(profile_remote) master --squash
 
 .PHONY: all pull-profile push-profile init-profile init-profile-remote clean
