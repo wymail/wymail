@@ -14,7 +14,7 @@ clean:
 
 index: $(outputs)
 	ls ./blog | ./scripts/filename2index.sh > ./dist/blog/Index.md \
-		&& pandoc -f gfm -i ./dist/blog/Index.md -t html -o ./index.html
+		&& pandoc -f gfm -i ./dist/profile/README.md -t html -o ./index.html
 
 readme: ./README.md
 
