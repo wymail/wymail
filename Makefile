@@ -31,10 +31,10 @@ init-profile-remote:
 
 init-profile: init-profile-remote
 	[[ -d $(profile_path) ]] \
-		|| git subtree add --prefix $(profile_path) $(profile_remote) master --squash -m '🤖 add profile subtree'
+		|| git subtree add --prefix $(profile_path) $(profile_remote) master -m '🤖 add profile subtree'
 
 pull-profile: init-profile
-	git subtree pull --prefix $(profile_path) $(profile_remote) master --squash -m '🤖 pull profile subtree'
+	git subtree pull --prefix $(profile_path) $(profile_remote) master -m '🤖 pull profile subtree'
 
 push-profile:
 	git subtree push --prefix $(profile_path) $(profile_remote) master --squash
