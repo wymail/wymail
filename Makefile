@@ -1,15 +1,19 @@
-all: index-remote init-index pull-index push-index
+index_path = 'dist/index'
 
-index-remote:
-	(git remote rm gh-readme 2>/dev/null && git remote add gh-readme https://github.com/$(GH_USER)/$(GH_USER).git) || git remote add gh-readme https://github.com/$(GH_USER)/$(GH_USER).git
+all: init-index-remote init-index pull-index push-index
 
-init-index: index-remote
-	[[ -d dist/index ]] || git subtree add --prefix dist/index gh-readme master --squash
+init-index-remote:
+	(git remote rm gh-readme 2>/dev/null \
+		&& git remote add gh-readme https://github.com/$(GH_USER)/$(GH_USER).git) \
+		|| git remote add gh-readme https://github.com/$(GH_USER)/$(GH_USER).git
+
+init-index: init-index-remote
+	[[ -d $(index_path) ]] || git subtree add --prefix $(index_path) gh-readme master --squash -m '🤖 add index subtree'
 
 pull-index: init-index
-	git subtree pull --prefix dist/index gh-readme master --squash -m '🤖 pull index subtree'
+	git subtree pull --prefix $(index_path) gh-readme master --squash -m '🤖 pull index subtree'
 
 push-index: pull-index
-	git subtree push --prefix dist/index gh-readme master --squash
+	git subtree push --prefix $(index_path) gh-readme master --squash
 
-.PHONY: all push-index init-index index-remote
+.PHONY: all pull-index push-index init-index init-index-remote
