@@ -36,7 +36,7 @@ init-profile: init-profile-remote
 pull-profile: init-profile
 	git subtree pull --prefix $(profile_path) $(profile_remote) master --squash -m '🤖 pull profile subtree'
 
-push-profile: init-profile pull-profile
+push-profile:
 	git subtree push --prefix $(profile_path) $(profile_remote) master --squash
 
 .PHONY: all pull-profile push-profile init-profile init-profile-remote clean
