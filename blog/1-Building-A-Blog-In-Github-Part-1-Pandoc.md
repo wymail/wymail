@@ -1,4 +1,4 @@
-% Using Github Pages for blogging - Part 1
+% Using Github Pages for blogging - Part 1 : Pandoc
 % arcmode
 % 08/02/2021
 

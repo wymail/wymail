@@ -19,7 +19,7 @@ blog := $(patsubst $(blog_src)/%.org,$(blog_dist)/%.html, \
 all: $(blog) blog_index profile
 
 clean:
-	(rm -fr $(dist_path) || true) && mkdir -p {$(profile_dist),$(blog_dist)}
+	(rm -fr $(dist_path) 2>/dev/null || true) && mkdir -p {$(profile_dist),$(blog_dist)}
 
 ########### BLOG #############
 
