@@ -1,8 +1,6 @@
-% Hello World
+% Using Github Pages for blogging - Part 1
 % darcmode
 % 08/02/2021
-
-### Experiment: Blogging in Github
 
 #### TODO
 - multi index (profile, homepage, blog root)

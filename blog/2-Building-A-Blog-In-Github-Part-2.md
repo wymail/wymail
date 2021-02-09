@@ -1,7 +1,5 @@
-% Hello World
+% Using Github Pages for blogging - Part 2
 % darcmode
 % 08/02/2021
-
-### Experiment: Blogging in Github - Part 2
 
 #### TODO
