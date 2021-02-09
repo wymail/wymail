@@ -1,5 +1,5 @@
 % Using Github Pages for blogging - Part 1
-% darcmode
+% arcmode
 % 08/02/2021
 
 #### TODO

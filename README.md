@@ -1,5 +1,5 @@
 % Hello World
-% darcmode
+% arcmode
 % 08/02/2021
 
 ### Hi there 🖖
@@ -11,7 +11,7 @@ I have been using to create a minimalistic blogging system and write posts about
 
 ##### Blog
 
-Index is [here](https://darcmode.github.io/dist/blog/index.html). Built with [Pandoc](https://pandoc.org/) and deployed as [Github Page](https://pages.github.com/).
+Index is [here](https://arcmode.github.io/dist/blog/index.html). Built with [Pandoc](https://pandoc.org/) and deployed as [Github Page](https://pages.github.com/).
 
 ##### Personal Github Profile
 

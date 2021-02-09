@@ -1,5 +1,5 @@
 #+TITLE: Using Github Pages for blogging - Part 2
 #+DATE: <2021-02-08 Mon>
-#+AUTHOR: darcmode
+#+AUTHOR: arcmode
 
 *** TODO Write more TODO's

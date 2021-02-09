@@ -8,7 +8,7 @@ about it ♻️
 
 ##### Blog
 
-Index is [here](https://darcmode.github.io/dist/blog/index.html). Built
+Index is [here](https://arcmode.github.io/dist/blog/index.html). Built
 with [Pandoc](https://pandoc.org/) and deployed as [Github
 Page](https://pages.github.com/).
 

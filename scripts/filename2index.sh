@@ -8,7 +8,7 @@ def main():
         (rawtitle,) = re.search(r'^\d+-(.+)\..*$', filename).groups()
         title = rawtitle.replace('-', ' ')
         sys.stdout.write('### ['+title+']')
-        sys.stdout.write('(https://darcmode.github.io/dist/blog/'+re.sub(r'\..*$', '.html', filename)+')')
+        sys.stdout.write('(https://arcmode.github.io/dist/blog/'+re.sub(r'\..*$', '.html', filename)+')')
         sys.stdout.write('\n')
 
 if __name__=='__main__':
