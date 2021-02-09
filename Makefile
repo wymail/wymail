@@ -20,14 +20,17 @@ clean:
 	(rm -fr $(dist_path) || true) && mkdir -p {$(profile_dist),$(blog_dist)}
 
 $(blog_dist)/%.html : $(blog_src)/%.md
-	pandoc -f gfm -i $< -t html -o $@
+	pandoc -i $< -t html -o $@ --template ./templates/root.html
 
 blog_index: $(blog)
-	ls $(blog_src) | ./scripts/filename2index.sh | pandoc -f gfm -t html -o $(blog_dist)/index.html
+	ls $(blog_src) \
+		| ./scripts/filename2index.sh \
+		| pandoc -t html -o $(blog_dist)/index.html --template ./templates/root.html
 
 profile: ./README.md
-	cat ./README.md > $(profile_dist)/README.md \
-		&& pandoc -f gfm -i $(profile_dist)/README.md -t html -o ./index.html
+	bash -c 'cat ./README.md \
+		| tee >(pandoc -t gfm -o $(profile_dist)/README.md) \
+		| pandoc -t html -o ./index.html --template ./templates/root.html'
 
 ##################################################################################
 
