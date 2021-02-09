@@ -11,8 +11,8 @@ profile_dist = ./dist/profile
 profile_prefix = 'dist/profile'
 profile_remote = 'gh-profile'
 profile_remote_url = 'https://github.com/$(GH_USER)/$(GH_USER).git'
-blog_posts := $(wildcard $(blog_src)/*.md)
-blog := $(patsubst $(blog_src)/%.md,$(blog_dist)/%.html,$(blog_posts))
+blog_posts := $(wildcard $(blog_src)/*.md) $(wildcard $(blog_src)/*.org)
+blog := $(patsubst $(blog_src)/%.org,$(blog_dist)/%.html,$(blog_posts)) $(patsubst $(blog_src)/%.md,$(blog_dist)/%.html,$(blog_posts))
 
 all: $(blog) blog_index profile
 
@@ -21,6 +21,10 @@ clean:
 
 $(blog_dist)/%.html : $(blog_src)/%.md
 	pandoc -i $< -t html -o $@ --template ./templates/root.html
+
+$(blog_dist)/%.html : $(blog_src)/%.org
+	pandoc -f org -i $< -t html -o $@ --template ./templates/root.html
+
 
 blog_index: $(blog)
 	ls $(blog_src) \
