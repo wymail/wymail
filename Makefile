@@ -57,6 +57,6 @@ init-profile: init-profile-remote
 	[[ -d $(profile_dist) ]] \
 		|| git subtree add --prefix $(profile_dist) $(profile_remote) master -m '🤖 add profile subtree'
 
-########### PHONY #############
+########################
 
 .PHONY: all deploy-profile init-profile-remote init-profile clean

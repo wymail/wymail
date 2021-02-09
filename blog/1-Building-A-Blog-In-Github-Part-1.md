@@ -3,9 +3,8 @@
 % 08/02/2021
 
 #### TODO
-- multi index (profile, homepage, blog root)
-- split author markdown
-  - new layout: Author.md ++ [Blog] ++ README.md
+- move blog to arcmode/blog
+- specific templates (profile, homepage, blog root)
 - boilerplate automation (webcomponents)
 - themes (dracula)
 
