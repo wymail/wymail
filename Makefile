@@ -19,42 +19,49 @@ blog := $(patsubst $(blog_src)/%.org,$(blog_dist)/%.html, \
 all: $(blog) blog_index profile
 
 clean:
-	(rm -fr $(dist_path) 2>/dev/null || true) && mkdir -p {$(profile_dist),$(blog_dist)}
+	@(rm -fr $(dist_path) 2>/dev/null || true) && mkdir -p {$(profile_dist),$(blog_dist)}
 
 ########### BLOG #############
 
 $(blog_dist)/%.html : $(blog_src)/%.md
-	pandoc -i $< -t html -o $@ --template ./templates/root.html
+	@pandoc -i $< -t html -o $@ \
+		--template ./templates/root.html \
+		--toc\
+		--highlight-style themes/dracula.theme
 
 $(blog_dist)/%.html : $(blog_src)/%.org
-	pandoc -f org -i $< -t html -o $@ --template ./templates/root.html
+	@pandoc -f org -i $< -t html -o $@ \
+		--template ./templates/root.html --toc \
+		--highlight-style themes/dracula.theme
 
 blog_index: $(blog)
-	ls $(blog_src) \
+	@ls $(blog_src) \
 		| ./scripts/filename2index.sh \
-		| pandoc -t html -o $(blog_dist)/index.html --template ./templates/root.html
+		| pandoc -t html -o $(blog_dist)/index.html \
+			--template ./templates/root.html \
+			--highlight-style themes/dracula.theme
 
 ########### PROFILE #############
 
 profile: ./README.md
-	bash -c 'cat ./README.md \
+	@bash -c 'cat ./README.md \
 		| tee >(pandoc -t gfm -o $(profile_dist)/README.md) \
 		| pandoc -t html -o ./index.html --template ./templates/root.html'
 
 ########### DEPLOY #############
 
 deploy-profile:
-	git subtree push --prefix $(profile_prefix) $(profile_remote) master --squash
+	@git subtree push --prefix $(profile_prefix) $(profile_remote) master --squash
 
 ########### INIT #############
 
 init-profile-remote:
-	(git remote rm $(profile_remote) 2>/dev/null \
+	@(git remote rm $(profile_remote) 2>/dev/null \
 		&& git remote add $(profile_remote) $(profile_remote_url)) \
 		|| git remote add $(profile_remote) $(profile_remote_url)
 
 init-profile: init-profile-remote
-	[[ -d $(profile_dist) ]] \
+	@[[ -d $(profile_dist) ]] \
 		|| git subtree add --prefix $(profile_dist) $(profile_remote) master -m '🤖 add profile subtree'
 
 ########################
