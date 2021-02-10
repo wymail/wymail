@@ -51,7 +51,12 @@ profile: ./README.md
 ########### DEPLOY #############
 
 deploy-profile:
-	@git subtree push --prefix $(profile_prefix) $(profile_remote) master --squash
+	@git diff --quiet && git subtree push --prefix $(profile_prefix) $(profile_remote) master --squash
+
+deploy-blog:
+	@git diff --quiet && git checkout master && git push origin master
+
+deploy: deploy-blog deploy-profile
 
 ########### INIT #############
 
@@ -66,4 +71,4 @@ init-profile: init-profile-remote
 
 ########################
 
-.PHONY: all deploy-profile init-profile-remote init-profile clean
+.PHONY: all deploy deploy-blog deploy-profile init-profile-remote init-profile clean
