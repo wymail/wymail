@@ -4,6 +4,15 @@
 #       Blog
 #           MaKe
 
+all: $(blog) blog_index profile
+
+clean:
+	@(rm -fr $(dist_path) 2>/dev/null || true) && mkdir -p {$(profile_dist),$(blog_dist)}
+
+print-%: ; @echo $*=$($*)
+
+########### VARIABLES #############
+
 blog_src = ./blog
 dist_path = ./dist
 blog_dist = ./dist/blog
@@ -11,35 +20,45 @@ profile_dist = ./dist/profile
 profile_prefix = 'dist/profile'
 profile_remote = 'gh-profile'
 profile_remote_url = 'https://github.com/$(GH_USER)/$(GH_USER).git'
-blog_posts := $(wildcard $(blog_src)/*.md) \
-							$(wildcard $(blog_src)/*.org)
+blog_posts_src := $(wildcard $(blog_src)/*/*.md) \
+									$(wildcard $(blog_src)/*/*.org)
 blog := $(patsubst $(blog_src)/%.org,$(blog_dist)/%.html, \
-				$(patsubst $(blog_src)/%.md,$(blog_dist)/%.html,$(blog_posts)))
-
-all: $(blog) blog_index profile
-
-clean:
-	@(rm -fr $(dist_path) 2>/dev/null || true) && mkdir -p {$(profile_dist),$(blog_dist)}
+					$(patsubst $(blog_src)/%.md,$(blog_dist)/%.html, \
+						$(blog_posts_src)))
 
 ########### BLOG #############
 
-$(blog_dist)/%.html : $(blog_src)/%.md
+$(blog_dist)/%.html: $(blog_src)/%.md
+	@mkdir -p $(@D)
 	@pandoc -i $< -t html -o $@ \
 		--template ./templates/root.html \
 		--toc\
 		--highlight-style themes/dracula.theme
 
-$(blog_dist)/%.html : $(blog_src)/%.org
+$(blog_dist)/%.html: $(blog_src)/%.org
+	@mkdir -p $(@D)
 	@pandoc -f org -i $< -t html -o $@ \
-		--template ./templates/root.html --toc \
+		--template ./templates/root.html \
+		--toc \
 		--highlight-style themes/dracula.theme
 
-blog_index: $(blog)
-	@ls $(blog_src) \
-		| ./scripts/filename2index.sh \
-		| pandoc -t html -o $(blog_dist)/index.html \
-			--template ./templates/root.html \
-			--highlight-style themes/dracula.theme
+remove_index:
+	@rm $(blog_dist)/index.html || true
+
+blog_index: $(blog) remove_index
+	@$(foreach series, $(wildcard $(blog_dist)/*), \
+		ls $(series) \
+			| grep -v index.html \
+			| ./scripts/filename2index.sh \
+			| pandoc -t html -o $(series)/index.html \
+				--template ./templates/root.html \
+				--highlight-style themes/dracula.theme;)
+	@ls $(blog_dist) \
+	  	| grep -v index.html \
+	  	| ./scripts/directory2index.sh \
+	  	| pandoc -t html -o $(blog_dist)/index.html \
+	  		--template ./templates/root.html \
+	  		--highlight-style themes/dracula.theme
 
 ########### PROFILE #############
 
@@ -69,6 +88,8 @@ init-profile: init-profile-remote
 	@[[ -d $(profile_dist) ]] \
 		|| git subtree add --prefix $(profile_dist) $(profile_remote) master -m '🤖 add profile subtree'
 
+init: clean init-profile-remote init-profile
+
 ########################
 
-.PHONY: all deploy deploy-blog deploy-profile init-profile-remote init-profile clean
+.PHONY: all deploy deploy-blog deploy-profile init-profile-remote init-profile clean init
