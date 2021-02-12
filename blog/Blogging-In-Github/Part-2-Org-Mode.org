@@ -1,4 +1,4 @@
-#+TITLE: Using Github Pages for blogging - Part 2 : Org Mode
+#+TITLE: Blogging in Github - Part 2. Org Mode
 #+DATE: 2021-02-08 Mon
 #+AUTHOR: arcmode
 

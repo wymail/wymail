@@ -1,4 +1,4 @@
-<h1 id="hi-there-1">Hi there 🖖</h1>
+<h1 id="hi-there">Hi there 🖖</h1>
 <p>This is suposed to be my Github profile but instead is a playground I have been using to create a minimalistic blogging system and write posts about it ♻️</p>
 <h1 id="in-this-repo">In this repo</h1>
 <p>The following sites are managed by this repo</p>
