@@ -74,13 +74,19 @@ profile: $(wildcard ./README.org) $(wildcard ./README.md)
 
 ########### DEPLOY #############
 
+commit:
+ifneq ($(shell git status --short),)
+		@git add .
+		@git commit
+endif
+
 deploy-profile:
 	@git diff --quiet && git subtree push --prefix $(profile_prefix) $(profile_remote) master --squash
 
 deploy-blog:
 	@git diff --quiet && git checkout master && git push origin master
 
-deploy: deploy-blog deploy-profile
+deploy: commit deploy-blog deploy-profile
 
 ########### INIT #############
 
@@ -97,4 +103,4 @@ init: clean init-profile-remote init-profile
 
 ########################
 
-.PHONY: all deploy deploy-blog deploy-profile init-profile-remote init-profile clean init
+.PHONY: all deploy deploy-blog deploy-profile init-profile-remote init-profile clean init commit
