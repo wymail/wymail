@@ -86,7 +86,7 @@ deploy-profile:
 deploy-blog:
 	@git diff --quiet && git checkout master && git push origin master
 
-deploy: commit deploy-blog deploy-profile
+deploy-all: commit deploy-blog deploy-profile
 
 ########### INIT #############
 
