@@ -19,6 +19,8 @@ the =html= version of this page is generated with [[https://pandoc.org/][Pandoc]
 as [[https://pages.github.com/][Github Page]] [[https://arcmode.github.io/][here]].
 
 *** TODO
+**** TODO use target-specific variables for pandoc formats
+     https://www.gnu.org/software/make/manual/make.html#Target_002dspecific
 **** TODO move blog to arcmode/blog
 **** TODO specific templates (profile, homepage, blog root)
 **** TODO boilerplate automation (webcomponents)

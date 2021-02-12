@@ -25,24 +25,29 @@ Page](https://pages.github.com/) [here](https://arcmode.github.io/).
 
 ### TODO
 
-1.  <span class="todo TODO">TODO</span> move blog to arcmode/blog
+1.  <span class="todo TODO">TODO</span> use target-specific variables
+    for pandoc formats
 
-2.  <span class="todo TODO">TODO</span> specific templates (profile,
+    <https://www.gnu.org/software/make/manual/make.html#Target_002dspecific>
+
+2.  <span class="todo TODO">TODO</span> move blog to arcmode/blog
+
+3.  <span class="todo TODO">TODO</span> specific templates (profile,
     homepage, blog root)
 
-3.  <span class="todo TODO">TODO</span> boilerplate automation
+4.  <span class="todo TODO">TODO</span> boilerplate automation
     (webcomponents)
 
-4.  <span class="todo TODO">TODO</span> html themes (dracula)
+5.  <span class="todo TODO">TODO</span> html themes (dracula)
 
-5.  <span class="todo TODO">TODO</span> custom style for ascii art
+6.  <span class="todo TODO">TODO</span> custom style for ascii art
 
     <https://www.patorjk.com/software/taag/#p=testall&v=0&f=Graffiti&t=PanBloKe>
 
-6.  <span class="todo TODO">TODO</span> add configuration file following
+7.  <span class="todo TODO">TODO</span> add configuration file following
     XDG conventions
 
     <https://gist.github.com/roalcantara/107ba66dfa3b9d023ac9329e639bc58c>
 
-7.  <span class="todo TODO">TODO</span> split `index.html` of profile
+8.  <span class="todo TODO">TODO</span> split `index.html` of profile
     repo and profile
