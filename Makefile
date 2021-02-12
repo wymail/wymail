@@ -81,10 +81,16 @@ ifneq ($(shell git status --short),)
 endif
 
 deploy-profile:
-	@git diff --quiet && git subtree push --prefix $(profile_prefix) $(profile_remote) master --squash
+ifeq ($(shell git status --short),)
+	@git subtree push --prefix $(profile_prefix) $(profile_remote) master --squash
+endif
 
 deploy-blog:
-	@git diff --quiet && git checkout master && git push origin master
+ifeq ($(shell git status --short),)
+	@git checkout master
+	@git pull --rebase origin master
+	@git push origin master
+endif
 
 deploy-all: commit deploy-blog deploy-profile
 
