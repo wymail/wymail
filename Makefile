@@ -66,7 +66,7 @@ blog_index: $(blog) remove_index
 
 profile: $(wildcard ./README.org) $(wildcard ./README.md)
 	@[[ -f ./README.org ]] && bash -c 'cat ./README.org \
-		| tee >(pandoc -f org -t html -o $(profile_dist)/README.md --template ./templates/root.html) \
+		| tee >(pandoc -f org -t html -o $(profile_dist)/README.md --template ./templates/profile.html) \
 		| pandoc -f org -t html -o ./index.html --template ./templates/root.html' || true
 	@[[ -f ./README.md ]] && bash -c 'cat ./README.md \
 		| tee >(pandoc -t gfm -o $(profile_dist)/README.md) \
