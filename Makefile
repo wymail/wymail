@@ -107,6 +107,6 @@ init-profile: init-profile-remote
 
 init: clean init-profile-remote init-profile
 
-########################
+########### END #############
 
 .PHONY: all deploy deploy-blog deploy-profile init-profile-remote init-profile clean init commit
