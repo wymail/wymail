@@ -32,7 +32,7 @@ $(blog_dist)/%.html: $(blog_src)/%.md
 	@mkdir -p $(@D)
 	@pandoc -i $< -t html -o $@ \
 		--template ./templates/root.html \
-		--toc\
+		--toc \
 		--highlight-style themes/dracula.theme
 
 $(blog_dist)/%.html: $(blog_src)/%.org
@@ -51,7 +51,7 @@ blog_index: $(blog) remove_index
 			| grep -v index.html \
 			| ./scripts/filename2index.sh \
 			| pandoc -t html -o $(series)/index.html \
-				--metadata title:"$(shell echo "$(series)" | ./scripts/directory2title.sh)" \
+				--metadata title:"$(shell echo '$(series)' | ./scripts/directory2title.sh)" \
 				--template ./templates/root.html \
 				--highlight-style themes/dracula.theme;)
 	@ls $(blog_dist) \
