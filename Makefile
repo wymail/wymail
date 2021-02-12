@@ -43,7 +43,7 @@ $(blog_dist)/%.html: $(blog_src)/%.org
 		--highlight-style themes/dracula.theme
 
 remove_index:
-	@rm $(blog_dist)/index.html || true
+	@rm $(blog_dist)/index.html 2>/dev/null || true
 
 blog_index: $(blog) remove_index
 	@$(foreach series, $(wildcard $(blog_dist)/*), \
@@ -51,12 +51,14 @@ blog_index: $(blog) remove_index
 			| grep -v index.html \
 			| ./scripts/filename2index.sh \
 			| pandoc -t html -o $(series)/index.html \
+				--metadata title:"$(shell echo "$(series)" | ./scripts/directory2title.sh)" \
 				--template ./templates/root.html \
 				--highlight-style themes/dracula.theme;)
 	@ls $(blog_dist) \
 	  	| grep -v index.html \
 	  	| ./scripts/directory2index.sh \
 	  	| pandoc -t html -o $(blog_dist)/index.html \
+				--metadata title:"$(GH_USER)/blog" \
 	  		--template ./templates/root.html \
 	  		--highlight-style themes/dracula.theme
 
