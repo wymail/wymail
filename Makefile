@@ -76,22 +76,23 @@ profile: $(wildcard ./README.org) $(wildcard ./README.md)
 
 commit:
 ifneq ($(shell git status --short),)
-		@git add .
-		@git commit
+	@git checkout master
+	@git add .
+	@git commit
 endif
 
 deploy-profile:
-	@git diff --quiet \
+	@git checkout master \
+		&& git diff --quiet \
 		&& git subtree push \
 			--prefix $(profile_prefix) \
 			$(profile_remote) master \
 			--squash
 
 deploy-blog:
-	@git diff --quiet \
-		git checkout master \
-		git pull --rebase origin master \
-		git push origin master
+	@git checkout master \
+		&& git diff --quiet \
+		&& git push origin master
 
 deploy-all: commit deploy-blog deploy-profile
 
