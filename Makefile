@@ -81,6 +81,11 @@ ifneq ($(shell git status --short),)
 	@git commit
 endif
 
+rebase:
+	@git checkout master \
+		&& git fetch --all \
+		&& git pull --rebase origin master \
+
 deploy-profile:
 	@git checkout master \
 		&& git diff --quiet \
@@ -94,7 +99,7 @@ deploy-blog:
 		&& git diff --quiet \
 		&& git push origin master
 
-deploy-all: commit deploy-blog deploy-profile
+deploy-all: commit rebase deploy-blog deploy-profile
 
 ########### INIT #############
 
@@ -111,4 +116,4 @@ init: clean init-profile-remote init-profile
 
 ########### END #############
 
-.PHONY: all deploy deploy-blog deploy-profile init-profile-remote init-profile clean init commit
+.PHONY: all deploy deploy-blog deploy-profile init-profile-remote init-profile clean init commit rebase
