@@ -1,159 +1,48 @@
-<style>
-  html {
-    line-height: 1.5;
-    font-family: Georgia, serif;
-    font-size: 20px;
-    color: #1a1a1a;
-    background-color: #fdfdfd;
-  }
-  body {
-    margin: 0 auto;
-    max-width: 36em;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    hyphens: auto;
-    word-wrap: break-word;
-    text-rendering: optimizeLegibility;
-    font-kerning: normal;
-  }
-  @media (max-width: 600px) {
-    body {
-      font-size: 0.9em;
-      padding: 1em;
-    }
-  }
-  @media print {
-    body {
-      background-color: transparent;
-      color: black;
-      font-size: 12pt;
-    }
-    p, h2, h3 {
-      orphans: 3;
-      widows: 3;
-    }
-    h2, h3, h4 {
-      page-break-after: avoid;
-    }
-  }
-  p {
-    margin: 1em 0;
-  }
-  a {
-    color: #1a1a1a;
-  }
-  a:visited {
-    color: #1a1a1a;
-  }
-  img {
-    max-width: 100%;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    margin-top: 1.4em;
-  }
-  h5, h6 {
-    font-size: 1em;
-    font-style: italic;
-  }
-  h6 {
-    font-weight: normal;
-  }
-  ol, ul {
-    padding-left: 1.7em;
-    margin-top: 1em;
-  }
-  li > ol, li > ul {
-    margin-top: 0;
-  }
-  blockquote {
-    margin: 1em 0 1em 1.7em;
-    padding-left: 1em;
-    border-left: 2px solid #e6e6e6;
-    color: #606060;
-  }
-  code {
-    font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-    font-size: 85%;
-    margin: 0;
-  }
-  pre {
-    margin: 1em 0;
-    overflow: auto;
-  }
-  pre code {
-    padding: 0;
-    overflow: visible;
-  }
-  .sourceCode {
-   background-color: transparent;
-   overflow: visible;
-  }
-  hr {
-    background-color: #1a1a1a;
-    border: none;
-    height: 1px;
-    margin: 1em 0;
-  }
-  table {
-    margin: 1em 0;
-    border-collapse: collapse;
-    width: 100%;
-    overflow-x: auto;
-    display: block;
-    font-variant-numeric: lining-nums tabular-nums;
-  }
-  table caption {
-    margin-bottom: 0.75em;
-  }
-  tbody {
-    margin-top: 0.5em;
-    border-top: 1px solid #1a1a1a;
-    border-bottom: 1px solid #1a1a1a;
-  }
-  th {
-    border-top: 1px solid #1a1a1a;
-    padding: 0.25em 0.5em 0.25em 0.5em;
-  }
-  td {
-    padding: 0.125em 0.5em 0.25em 0.5em;
-  }
-  header {
-    margin-bottom: 4em;
-    text-align: center;
-  }
-  #TOC li {
-    list-style: none;
-  }
-  #TOC a:not(:hover) {
-    text-decoration: none;
-  }
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-  .display.math{display: block; text-align: center; margin: 0.5rem auto;}
-</style>
-<h1 id="hi-there">Hi there 🖖</h1>
-<p>This is suposed to be my Github profile but instead is a playground I have been using to create a minimalistic blogging system and write posts about it ♻️</p>
-<h1 id="in-this-repo">In this repo</h1>
-<p>The following sites are managed by this repo</p>
-<h2 id="a-blog">A blog</h2>
-<p>The Blog index is <a href="https://arcmode.github.io/dist/blog/index.html">here</a>. Built with <a href="https://pandoc.org/">Pandoc</a> and deployed as <a href="https://pages.github.com/">Github Page</a>.</p>
-<h2 id="my-personal-github-profile">My personal Github Profile</h2>
-<p>The <code class="verbatim">Readme.md</code> of this repo is deployed as <a href="https://docs.github.com/en/github/setting-up-and-managing-your-github-profile/about-your-profile">Github Profile</a> and the <code class="verbatim">html</code> version of this page is generated with <a href="https://pandoc.org/">Pandoc</a> and deployed as <a href="https://pages.github.com/">Github Page</a> <a href="https://arcmode.github.io/">here</a>.</p>
-<h3 id="todo">TODO</h3>
-<ol>
-<li><p><span class="todo TODO">TODO</span> move blog to arcmode/blog</p></li>
-<li><p><span class="todo TODO">TODO</span> specific templates (profile, homepage, blog root)</p></li>
-<li><p><span class="todo TODO">TODO</span> boilerplate automation (webcomponents)</p></li>
-<li><p><span class="todo TODO">TODO</span> html themes (dracula)</p></li>
-<li><p><span class="todo TODO">TODO</span> custom style for ascii art</p>
-<p><a href="https://www.patorjk.com/software/taag/#p=testall&amp;v=0&amp;f=Graffiti&amp;t=PanBloKe">https://www.patorjk.com/software/taag/#p=testall&amp;v=0&amp;f=Graffiti&amp;t=PanBloKe</a></p></li>
-<li><p><span class="todo TODO">TODO</span> add configuration file following XDG conventions</p>
-<p><a href="https://gist.github.com/roalcantara/107ba66dfa3b9d023ac9329e639bc58c">https://gist.github.com/roalcantara/107ba66dfa3b9d023ac9329e639bc58c</a></p></li>
-<li><p><span class="todo TODO">TODO</span> split <code class="verbatim">index.html</code> of profile repo and profile</p></li>
-</ol>
+# Hi there 🖖
+
+This is suposed to be my Github profile but instead is a playground I
+have been using to create a minimalistic blogging system and write posts
+about it ♻️
+
+# In this repo
+
+The following sites are managed by this repo
+
+## A blog
+
+The Blog index is
+[here](https://arcmode.github.io/dist/blog/index.html). Built with
+[Pandoc](https://pandoc.org/) and deployed as [Github
+Page](https://pages.github.com/).
+
+## My personal Github Profile
+
+The `Readme.md` of this repo is deployed as [Github
+Profile](https://docs.github.com/en/github/setting-up-and-managing-your-github-profile/about-your-profile)
+and the `html` version of this page is generated with
+[Pandoc](https://pandoc.org/) and deployed as [Github
+Page](https://pages.github.com/) [here](https://arcmode.github.io/).
+
+### TODO
+
+1.  <span class="todo TODO">TODO</span> move blog to arcmode/blog
+
+2.  <span class="todo TODO">TODO</span> specific templates (profile,
+    homepage, blog root)
+
+3.  <span class="todo TODO">TODO</span> boilerplate automation
+    (webcomponents)
+
+4.  <span class="todo TODO">TODO</span> html themes (dracula)
+
+5.  <span class="todo TODO">TODO</span> custom style for ascii art
+
+    <https://www.patorjk.com/software/taag/#p=testall&v=0&f=Graffiti&t=PanBloKe>
+
+6.  <span class="todo TODO">TODO</span> add configuration file following
+    XDG conventions
+
+    <https://gist.github.com/roalcantara/107ba66dfa3b9d023ac9329e639bc58c>
+
+7.  <span class="todo TODO">TODO</span> split `index.html` of profile
+    repo and profile
