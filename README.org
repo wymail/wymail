@@ -1,0 +1,28 @@
+#+TITLE: Hi there 🖖
+#+DATE: 2021-02-11 Thu
+#+AUTHOR: arcmode
+
+* Hi there 🖖
+This is suposed to be my Github profile but instead is a playground
+I have been using to create a minimalistic blogging system and write posts about it ♻️
+
+* In this repo
+The following sites are managed by this repo
+** A blog
+
+The Blog index is [[https://arcmode.github.io/dist/blog/index.html][here]]. Built with [[https://pandoc.org/][Pandoc]] and deployed as [[https://pages.github.com/][Github Page]].
+
+** My personal Github Profile
+
+The =Readme.md= of this repo is deployed as [[https://docs.github.com/en/github/setting-up-and-managing-your-github-profile/about-your-profile][Github Profile]] and the =html= version of this page is generated with [[https://pandoc.org/][Pandoc]] and deployed as [[https://pages.github.com/][Github Page]].
+
+*** TODO
+**** TODO move blog to arcmode/blog
+**** TODO specific templates (profile, homepage, blog root)
+**** TODO boilerplate automation (webcomponents)
+**** TODO html themes (dracula)
+**** TODO custom style for ascii art
+     https://www.patorjk.com/software/taag/#p=testall&v=0&f=Graffiti&t=PanBloKe
+**** TODO add configuration file following XDG conventions
+     https://gist.github.com/roalcantara/107ba66dfa3b9d023ac9329e639bc58c
+**** TODO split =index.html= of profile repo and profile
