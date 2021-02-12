@@ -5,7 +5,7 @@
 <h2 id="a-blog">A blog</h2>
 <p>The Blog index is <a href="https://arcmode.github.io/dist/blog/index.html">here</a>. Built with <a href="https://pandoc.org/">Pandoc</a> and deployed as <a href="https://pages.github.com/">Github Page</a>.</p>
 <h2 id="my-personal-github-profile">My personal Github Profile</h2>
-<p>The <code class="verbatim">Readme.md</code> of this repo is deployed as <a href="https://docs.github.com/en/github/setting-up-and-managing-your-github-profile/about-your-profile">Github Profile</a> and the <code class="verbatim">html</code> version of this page is generated with <a href="https://pandoc.org/">Pandoc</a> and deployed as <a href="https://pages.github.com/">Github Page</a>.</p>
+<p>The <code class="verbatim">Readme.md</code> of this repo is deployed as <a href="https://docs.github.com/en/github/setting-up-and-managing-your-github-profile/about-your-profile">Github Profile</a> and the <code class="verbatim">html</code> version of this page is generated with <a href="https://pandoc.org/">Pandoc</a> and deployed as <a href="https://pages.github.com/">Github Page</a> <a href="https://arcmode.github.io/">here</a>.</p>
 <h3 id="todo">TODO</h3>
 <ol>
 <li><p><span class="todo TODO">TODO</span> move blog to arcmode/blog</p></li>

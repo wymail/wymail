@@ -14,7 +14,9 @@ The Blog index is [[https://arcmode.github.io/dist/blog/index.html][here]]. Buil
 
 ** My personal Github Profile
 
-The =Readme.md= of this repo is deployed as [[https://docs.github.com/en/github/setting-up-and-managing-your-github-profile/about-your-profile][Github Profile]] and the =html= version of this page is generated with [[https://pandoc.org/][Pandoc]] and deployed as [[https://pages.github.com/][Github Page]].
+The =Readme.md= of this repo is deployed as [[https://docs.github.com/en/github/setting-up-and-managing-your-github-profile/about-your-profile][Github Profile]] and
+the =html= version of this page is generated with [[https://pandoc.org/][Pandoc]] and deployed
+as [[https://pages.github.com/][Github Page]] [[https://arcmode.github.io/][here]].
 
 *** TODO
 **** TODO move blog to arcmode/blog
